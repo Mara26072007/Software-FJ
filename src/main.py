@@ -7,6 +7,7 @@ print("=== SISTEMA SOFTWARE FJ ===")
 
 # 1. Crear cliente válido
 cliente1 = Cliente("Juan Pérez", "12345", "3001234567")
+print("Prueba realizada por Emilson - trabajo colaborativo")
 
 # 2. Crear servicios
 servicio1 = ServicioSala("Sala reuniones", 100)
