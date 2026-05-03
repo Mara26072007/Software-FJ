@@ -1,13 +1,15 @@
 from cliente import Cliente
 from servicio import ServicioSala, ServicioEquipo, ServicioAsesoria
 from reserva import Reserva
-from excepciones import ErrorReserva
+from excepciones import ErrorCliente, ErrorReserva, ErrorServicio
+import logging
+logging.basicConfig(filename="sistema.log", level=logging.INFO)
 
 print("=== SISTEMA SOFTWARE FJ ===")
 
 # 1. Crear cliente válido
 cliente1 = Cliente("Juan Pérez", "12345", "3001234567")
-print("Prueba realizada por Emilson - trabajo colaborativo")
+print("Cliente válido creado")
 
 # 2. Crear servicios
 servicio1 = ServicioSala("Sala reuniones", 100)
@@ -36,3 +38,26 @@ except ErrorReserva as e:
 print(reserva2.cancelar())
 
 print("=== FIN DEL SISTEMA ===")
+
+# 7. Cliente inválido (nombre vacío, documento no numérico)
+try:
+    cliente_invalido = Cliente("", "abc", "123")
+except ErrorCliente as e:
+    print("Error controlado:", e)
+
+# 8. Servicio con costo negativo
+try:
+    servicio_invalido = ServicioSala("Sala pequeña", -50)
+    print(servicio_invalido.calcular_costo())
+except ErrorServicio as e:
+    print("Error controlado:", e)
+
+# 9. Reserva con duración inválida
+try:
+    reserva_invalida = Reserva(cliente1, servicio1, -2)
+    print(reserva_invalida.procesar())
+except ErrorReserva as e:
+    print("Error controlado:", e)
+
+# 10. Reserva cancelada correctamente
+print(reserva1.cancelar())

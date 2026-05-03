@@ -1,4 +1,6 @@
+import logging
 from excepciones import ErrorCliente
+logging.basicConfig(filename="cliente.log", level=logging.INFO)
 
 
 class Cliente:
@@ -8,7 +10,10 @@ class Cliente:
         self.__telefono = telefono
 
         self.__validar_datos()
-
+    
+# Registro en logs: cliente creado correctamente
+        logging.info(f"Cliente {self.__nombre} creado correctamente")
+        
     #  Encapsulación (Getters)
     @property
     def nombre(self):
@@ -28,18 +33,20 @@ class Cliente:
         if not value or not value.strip():
             raise ErrorCliente("El nombre no puede estar vacío")
         self.__nombre = value
-
+        logging.info(f"Nombre actualizado a {value}")
     @documento.setter
     def documento(self, value):
         if not value.isdigit():
             raise ErrorCliente("El documento debe ser numérico")
         self.__documento = value
+        logging.info(f"Documento actualizado a {value}")
 
     @telefono.setter
     def telefono(self, value):
         if not value.isdigit() or len(value) < 7:
             raise ErrorCliente("Teléfono inválido")
         self.__telefono = value
+        logging.info(f"Teléfono actualizado a {value}")
 
     #  Validación interna
     def __validar_datos(self):
@@ -59,4 +66,5 @@ class Cliente:
 
     #  Método funcional
     def mostrar_info(self):
+        logging.info(f"Mostrando información del cliente: {self.__nombre}")
         return f"Cliente: {self.__nombre} - Documento: {self.__documento} - Teléfono: {self.__telefono}"

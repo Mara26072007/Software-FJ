@@ -1,3 +1,4 @@
+import logging
 from excepciones import ErrorReserva
 
 
@@ -13,10 +14,12 @@ class Reserva:
             raise ErrorReserva("No se puede confirmar sin servicio")
 
         self.estado = "Confirmada"
+        logging.info(f"Reserva {self.estado} para cliente {self.cliente.nombre}")
         return "Reserva confirmada"
 
     def cancelar(self):
         self.estado = "Cancelada"
+        logging.info(f"Reserva {self.estado} para cliente {self.cliente.nombre}")
         return "Reserva cancelada"
 
     def procesar(self):
