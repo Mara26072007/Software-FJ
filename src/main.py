@@ -12,7 +12,7 @@ cliente1 = Cliente("Juan Pérez", "12345", "3001234567")
 print("Cliente válido creado")
 
 # 2. Crear servicios
-servicio1 = ServicioSala("Sala reuniones", 100)
+servicio1 = ServicioSala("Sala básica", 100)
 servicio2 = ServicioEquipo("Computador", 200)
 servicio3 = ServicioAsesoria("Asesoría TI", 300)
 

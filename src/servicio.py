@@ -10,11 +10,6 @@ class Servicio(ABC):
     def calcular_costo(self, duracion=1, descuento=0):
         pass
 
-servicio1 = Servicio("Servicio 1", 100)
-costo_total = servicio1.calcular_costo(duracion=2, descuento=0.1)
-print(f"Costo total: {costo_total}")
-
-
 class ServicioSala(Servicio):
     def calcular_costo(self, duracion=1, descuento=0):
         costo = self.costo_base * 1.10  # incluye impuesto
