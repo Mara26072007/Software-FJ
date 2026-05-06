@@ -26,6 +26,10 @@ def titulo(numero: int, descripcion: str):
     print(f"  OPERACIÓN {numero}: {descripcion}")
     print(f"{'='*60}")
 
+# 2. Crear servicios
+servicio1 = ServicioSala("Sala básica", 100)
+servicio2 = ServicioEquipo("Computador", 200)
+servicio3 = ServicioAsesoria("Asesoría TI", 300)
 
 print("\n🏢  SISTEMA INTEGRAL SOFTWARE FJ  🏢")
 print("Iniciando simulación de operaciones...\n")
