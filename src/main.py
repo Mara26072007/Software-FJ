@@ -28,7 +28,7 @@ def titulo(numero: int, descripcion: str):
 # SIMULACIÓN AUTOMÁTICA (10 operaciones)
 # ════════════════════════════════════════════════════════════
 def simulacion_automatica():
-    print("\n🏢 SISTEMA INTEGRAL SOFTWARE FJ 🏢")
+    print("\n SISTEMA INTEGRAL SOFTWARE FJ - SIMULACIÓN AUTOMÁTICA")
     print("Iniciando simulación automática...\n")
 
     # Servicios base
@@ -49,7 +49,7 @@ def simulacion_automatica():
     try:
         Cliente("", "ABC", "123")
     except ErrorCliente as e:
-        print(f"⚠️ Error controlado: {e}")
+        print(f" Error controlado: {e}")
 
     # Operación 3
     titulo(3, "Creación de servicios")
@@ -61,7 +61,7 @@ def simulacion_automatica():
     try:
         ServicioSala("Sala rota", -50)
     except ErrorServicio as e:
-        print(f"⚠️ Error controlado: {e}")
+        print(f" Error controlado: {e}")
 
     # Operación 5
     titulo(5, "Reserva exitosa")
@@ -75,7 +75,7 @@ def simulacion_automatica():
     reserva2 = Reserva(cliente2, asesoria, 2)
     print(reserva2.confirmar())
     costo = asesoria.calcular_costo(duracion=2, descuento=0.15)
-    print(f"💰 Costo con descuento: ${costo:.2f}")
+    print(f" Costo con descuento: ${costo:.2f}")
 
     # Operación 7
     titulo(7, "Procesar sin confirmar")
@@ -83,14 +83,14 @@ def simulacion_automatica():
         reserva3 = Reserva(cliente1, equipo, 1)
         print(reserva3.procesar())
     except ErrorReserva as e:
-        print(f"⚠️ Error controlado: {e}")
+        print(f" Error controlado: {e}")
 
     # Operación 8
     titulo(8, "Reserva con duración inválida")
     try:
         Reserva(cliente1, sala, -3)
     except ErrorReserva as e:
-        print(f"⚠️ Error controlado: {e}")
+        print(f" Error controlado: {e}")
 
     # Operación 9
     titulo(9, "Cancelar reserva dos veces")
@@ -100,16 +100,16 @@ def simulacion_automatica():
     try:
         print(reserva4.cancelar())
     except ErrorReserva as e:
-        print(f"⚠️ Error controlado: {e}")
+        print(f" Error controlado: {e}")
 
     # Operación 10
     titulo(10, "Reserva sin servicio")
     try:
         Reserva(cliente1, None, 2)
     except ErrorReserva as e:
-        print(f"⚠️ Error controlado: {e}")
+        print(f" Error controlado: {e}")
 
-    print("\n✅ Simulación automática finalizada.")
+    print("\n Simulación automática finalizada.")
 
 
 # ════════════════════════════════════════════════════════════
@@ -120,7 +120,7 @@ servicios = []
 reservas = []
 
 def menu():
-    print("\n🏢 SISTEMA INTEGRAL SOFTWARE FJ 🏢")
+    print("\n SISTEMA INTEGRAL SOFTWARE FJ ")
     print("1. Registrar cliente")
     print("2. Crear servicio")
     print("3. Crear reserva")
@@ -136,9 +136,9 @@ def registrar_cliente():
     try:
         cliente = Cliente(nombre, documento, telefono)
         clientes.append(cliente)
-        print("✅ Cliente registrado")
+        print(" Cliente registrado")
     except ErrorCliente as e:
-        print(f"⚠️ Error: {e}")
+        print(f" Error: {e}")
 
 def crear_servicio():
     print("1. Sala\n2. Computador\n3. Asesoría TI")
@@ -153,16 +153,16 @@ def crear_servicio():
         elif opcion == "3":
             servicio = ServicioAsesoria(nombre, costo)
         else:
-            print("⚠️ Opción inválida")
+            print(" Opción inválida")
             return
         servicios.append(servicio)
-        print("✅ Servicio creado")
+        print(" Servicio creado")
     except ErrorServicio as e:
-        print(f"⚠️ Error: {e}")
+        print(f" Error: {e}")
 
 def crear_reserva():
     if not clientes or not servicios:
-        print("⚠️ Debe registrar cliente y servicio primero")
+        print(" Opción inválida")
         return
     cliente = clientes[0]
     servicio = servicios[0]
@@ -170,33 +170,33 @@ def crear_reserva():
     try:
         reserva = Reserva(cliente, servicio, duracion)
         reservas.append(reserva)
-        print("✅ Reserva creada")
+        print(" Reserva creada")
     except ErrorReserva as e:
-        print(f"⚠️ Error: {e}")
+        print(f" Error: {e}")
 
 def confirmar_reserva():
     if reservas:
         print(reservas[0].confirmar())
     else:
-        print("⚠️ No hay reservas")
+        print(" No hay reservas")
 
 def procesar_reserva():
     if reservas:
         try:
             print(reservas[0].procesar())
         except ErrorReserva as e:
-            print(f"⚠️ Error: {e}")
+            print(f" Error: {e}")
     else:
-        print("⚠️ No hay reservas")
+        print(" No hay reservas")
 
 def cancelar_reserva():
     if reservas:
         try:
             print(reservas[0].cancelar())
         except ErrorReserva as e:
-            print(f"⚠️ Error: {e}")
+            print(f" Error: {e}")
     else:
-        print("⚠️ No hay reservas")
+        print(" No hay reservas")
 
 
 # ════════════════════════════════════════════════════════════
@@ -227,7 +227,7 @@ if __name__ == "__main__":
             elif op == "6":
                 cancelar_reserva()
             elif op == "7":
-                print("👋 Saliendo del sistema...")
+                print(" Saliendo del sistema...")
                 break
             else:
-                print("⚠️ Opción inválida")
+                print(" Opción inválida")
