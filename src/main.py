@@ -18,7 +18,7 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 
-# ── Función auxiliar para separar visualmente cada operación ─────────────────
+#  Función auxiliar para separar visualmente cada operación 
 def titulo(numero: int, descripcion: str):
     print(f"\n{'='*60}")
     print(f"  OPERACIÓN {numero}: {descripcion}")
